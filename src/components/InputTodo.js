@@ -10,12 +10,10 @@ function InputTodo({ addTodo }) {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (title.trim()) {
-      e.preventDefault();
       addTodo(title);
       setTitle('');
-    } else {
-      alert('Please write item');
     }
   };
 
@@ -25,6 +23,7 @@ function InputTodo({ addTodo }) {
         type="text"
         className="input-text"
         value={title}
+        required
         onChange={handleChange}
         placeholder="Add Todo..."
       />
